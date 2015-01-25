@@ -1,4 +1,5 @@
-## R function that is able to cache potentially time-consuming computations.
+## R function that is able to cache potentially time-consuming computation involving
+## matrix inversion.
 
 ## This function creates a special "matrix" object that can cache its inverse.
 
@@ -9,6 +10,7 @@ makeCacheMatrix <- function(x = matrix()) {
     inv.x <<- NULL
   }
   get <- function() x
+  # inverts the matrix
   setinv <- function(solve) inv.x <<- solve
   getinv <- function() inv.x
   list(set = set, get = get,
